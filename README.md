@@ -48,11 +48,29 @@ Modal to review full size images
 
 Image effects or filters
 
+### Ad: 
+- added just tailwind lib to maintain it easily
+- all tailwind libraries matches css modifiers so the css code would be the same
 
 ### 2. Performance
 
-The API that is returning images is rather slow. Show how it can be sped up, and show how you would measure the improvement in performance.
+The API that is returning images is rather slow. Show how it can be speed up, and show how you would measure the improvement in performance.
 
+
+### Ad: 
+
+- how to measure? 
+    - Could add From FE perspective: just lighthouse and all its metrics that describes speed of contentful paint etc. It will show how it really impact end users. Lighhouse offers results from public users that uses Chrome
+
+    From BE perspecive: add tracker / any analicts library that gathers time of each request and calculates average in a certain period of time . i would gather info about latency, response time and availability ( needs larger group of user ). If not external tracker / library - it's enough to just calculate time in / time out of the request, do the sub and save :) 
+
+- how to speed up? 
+    - SSR with preloaded first page of the image, cache them ie. via Service Worker for some time, to boost second load. 
+    - server may serve src maps with smaller images to boost image loading ( not API iteself). Lazy load to not load more images than its needed. 
+    - cache Database results
+
+- what i did:
+ - i've added placeholders and lazy loading to hide issue the long time of loading
 
 ### 3. Forms
 
